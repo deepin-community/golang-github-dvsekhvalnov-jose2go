@@ -1,4 +1,7 @@
 #!/usr/bin/make -f
 
+export DH_GOLANG_INSTALL_EXTRA := $(shell find -name *.pem -o -name *.key)
+export DH_GOLANG_EXCLUDES := sec_test
+
 %:
-	dh $@
+	dh $@ --buildsystem=golang --with=golang
