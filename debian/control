@@ -1,15 +1,32 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-dvsekhvalnov-jose2go
+Section: golang
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Tianon Gravi <tianon@debian.org>
+Build-Depends: debhelper-compat (= 13),
+               dh-golang,
+               golang-check.v1-dev | golang-gopkg-check.v1-dev,
+               golang-go
+Standards-Version: 4.5.1
+Homepage: https://github.com/dvsekhvalnov/jose2go
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-dvsekhvalnov-jose2go
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-dvsekhvalnov-jose2go.git
+XS-Go-Import-Path: github.com/dvsekhvalnov/jose2go
+Rules-Requires-Root: no
+Testsuite: autopkgtest-pkg-go
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-dvsekhvalnov-jose2go-dev
+Architecture: all
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Multi-Arch: foreign
+Description: Go implementation of Javascript Object Signing and Encryption
+ Pure Golang (GO) library for generating, decoding and encrypting JSON Web
+ Tokens. Zero dependency, relies only on standard library.
+ .
+ Supports full suite of signing, encryption and compression algorithms defined
+ by JSON Web Algorithms as of July 4, 2014 version.
+ .
+ Extensively unit tested and cross tested (100+ tests) for compatibility with
+ jose.4.j, Nimbus-JOSE-JWT, json-jwt and jose-jwt libraries.
+ .
+ This package contains the source.
